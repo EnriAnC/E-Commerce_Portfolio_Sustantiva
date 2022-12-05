@@ -1,26 +1,35 @@
-// longitud de svgs
-// var path = document.querySelectorAll('path');
-// console.log(path)
-
-// path.forEach((element)=>{
-//     var length = element.getTotalLength();
-
-//     console.log(length)
-// })
+import { abrirModalCarro, abrirModalInicioSesion } from "./activarModales.js";
+import { botonAñadir }from "./add-action.js"
+import { actualizarCantidadCarroDeCompras, actualizarCarroDeCompras, botonEliminar, stock, numberObjectLS } from "./carro-compras.js";
+import { itemsEnVistaPrincipal } from "./vistaPrincipal.js";
 
 
-//Quitarle el enlace al svg dentro de una etiqueta <a></a>
-const $svg = document.querySelectorAll("svg")
+// if (matchMedia("(max-width: 500px)").matches){
+//     console.log("matchmedia!")
+    
+// }
+document.addEventListener("DOMContentLoaded", e=>{
+    // localStorage.setItem('itemsListCarroDeCompras', JSON.stringify())
+    itemsEnVistaPrincipal();
+    actualizarCarroDeCompras();
+    abrirModalCarro();
+    abrirModalInicioSesion();
+    botonAñadir();
+    stock();
 
-$svg.forEach(e=>{
-    const hrefOriginal = e.parentElement.href
-    // e.previousSibling.previousSibling.offsetParent.href = "#"
-    e.addEventListener("mouseover", (el)=>{
-        el.relatedTarget.parentElement.href = "javascript:void(0)"
-        // e.parentElement.href = "#"
+    document.addEventListener("click", (e)=>{
+        // e.preventDefault()
+        console.log(e)
+        botonEliminar(e);
+        // actualizarCantidadCarroDeCompras(e)
+        numberObjectLS(e)
     })
-    e.addEventListener("mouseleave", el=>{
-        el.relatedTarget.parentElement.href = hrefOriginal
+    document.addEventListener("change", e=>{
+        console.log(e)
+        actualizarCantidadCarroDeCompras(e)
+        
     })
+    
+    
 })
 

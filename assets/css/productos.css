@@ -11,10 +11,15 @@
     /* font-family: 'Cormorant SC', serif; */
     box-sizing: content-box;
 }
-
+html{
+    position: relative;
+    min-height: 100vh;
+}
 body{
     background-color: var(--color2);
-    min-height: 100vh;
+    min-height: inherit;
+    position: absolute;
+    width: 100%;
 }
 
 
@@ -212,7 +217,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color: rgb(211, 201, 146);
-    margin-bottom: 4rem;
+    margin-bottom: 10vh;
 }
 
 .producto img{
@@ -284,4 +289,13 @@ footer div:nth-child(1){
 
 footer{
     background-color: var(--color1);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+@media (max-width:1020px) {
+    footer{
+        bottom: 10vh;
+    }
 }
