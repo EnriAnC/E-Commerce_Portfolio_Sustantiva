@@ -37,7 +37,7 @@ export function paginaPorItem(){
     let div = document.createElement('div');
     div.className = 'producto'
     div.innerHTML = `
-    <img src="${itemsListArrayObject[posicionProducto].img}">
+    <img src="../.${itemsListArrayObject[posicionProducto].img}">
     <div class="descripcion">
         <h3 id=${itemsListArrayObject[posicionProducto].id}>${itemsListArrayObject[posicionProducto].nombre}</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officia expedita dignissimos excepturi assumenda rem facilis.</p>
